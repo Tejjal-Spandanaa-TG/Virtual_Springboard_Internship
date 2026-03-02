@@ -1,187 +1,265 @@
-# ReviewSense – Extracting Insights from Customer Feedback
+# 📊 ReviewSense – Extracting Insights from Customer Feedback
 
-## Complete README (Milestone 1, 2 & 3)
+## 🚀 Project Overview
 
----
+**ReviewSense** is a complete customer feedback analytics pipeline that transforms raw customer reviews into actionable business insights.
 
-## Project Overview
+The project is implemented in four milestones:
 
-**ReviewSense** is a customer feedback analytics pipeline that converts raw customer reviews into meaningful business insights.
-The project is developed across three milestones that progressively transform unstructured feedback into analytical intelligence.
+1. Data Cleaning & Preparation
+2. Sentiment Analysis
+3. Keyword Extraction
+4. Interactive Dashboard Visualization
 
-* **Milestone 1:** Data Ingestion & Text Cleaning
-* **Milestone 2:** Sentiment Analysis & Visualization
-* **Milestone 3:** Keyword Insight Extraction
-
-Together, these stages help identify customer sentiment, common discussion topics, and actionable insights.
+The final output is an interactive business intelligence dashboard built using Streamlit.
 
 ---
 
-## Milestone 1 – Data Ingestion & Text Cleaning
+# 🧩 Project Architecture
 
-### Objective
+Raw Feedback
+→ Cleaning & Preprocessing
+→ Sentiment Classification
+→ Keyword Extraction
+→ Interactive Dashboard
+→ Business Insights
 
-Prepare raw customer feedback for analysis by cleaning noisy textual data.
+---
 
-### Key Features
+# 📌 Milestone 1 – Data Cleaning & Preprocessing
 
-* Reads feedback from Excel or CSV
-* Removes URLs, numbers, punctuation, stopwords, and extra spaces
-* Generates standardized cleaned text
-* Handles missing files gracefully
-* Produces analysis-ready dataset
+## 🎯 Objective
 
-### Input
+Clean raw customer feedback and prepare it for analysis.
 
-`ReviewSense_Customer_Feedback_5000.xlsx`
+## ⚙️ Tasks Performed
 
-### Output
+* Removed special characters
+* Converted text to lowercase
+* Removed extra spaces
+* Standardized formatting
+* Generated cleaned feedback column
 
-`Milestone1_Cleaned_Feedback.csv`
+## 📂 Input
 
-### Technologies
+Raw customer feedback dataset (CSV)
+
+## 📤 Output
+
+`Milestone1_cleaned_feedback.csv`
+
+## 🛠 Technologies Used
 
 * Python
 * pandas
-* re (Regular Expressions)
-* string
+* Regular Expressions (re)
 
 ---
 
-## Milestone 2 – Sentiment Analysis & Visualization
+# 📌 Milestone 2 – Sentiment Analysis
 
-### Objective
+## 🎯 Objective
 
-Determine customer sentiment using Natural Language Processing and generate visual summaries.
+Classify customer feedback into:
 
-### Key Features
+* Positive
+* Negative
+* Neutral
 
-* Uses TextBlob polarity scoring
-* Labels feedback as:
+## ⚙️ Tasks Performed
 
-  * Positive
-  * Negative
-  * Neutral
-* Generates confidence score (−1 to +1)
-* Saves sentiment results
-* Creates sentiment distribution bar chart
+* Applied TextBlob polarity scoring
+* Assigned sentiment label based on polarity
+* Stored confidence score
+* Generated sentiment distribution
+* Created sentiment bar chart
 
-### Input
+## 📂 Input
 
-`Milestone1_Cleaned_Feedback.csv`
+`Milestone1_cleaned_feedback.csv`
 
-### Outputs
+## 📤 Output
 
-* `Milestone2_Sentiment_Results_new.csv`
-* `sentiment_bar_chart.png`
+`Milestone2_Sentiment_Results_new.csv`
+`sentiment_bar_chart.png`
 
-### Technologies
+## 🛠 Technologies Used
 
 * Python
 * pandas
 * TextBlob
 * matplotlib
 
+## 📊 Output Columns
+
+* clean_feedback
+* sentiment
+* confidence_score
+
 ---
 
-## Milestone 3 – Keyword Insight Extraction
+# 📌 Milestone 3 – Keyword Extraction
 
-### Objective
+## 🎯 Objective
 
-Identify the most frequently discussed topics in customer feedback using keyword frequency analysis.
+Identify most frequently occurring keywords in customer feedback.
 
-### Key Features
+## ⚙️ Tasks Performed
 
-* Extracts keywords from cleaned feedback
-* Removes special characters and noise
-* Counts keyword frequency using Counter
-* Generates ranked keyword insights
-* Helps identify major customer concerns and themes
+* Converted text to lowercase
+* Removed special characters
+* Tokenized words
+* Counted word frequency using Counter
+* Sorted keywords by frequency
 
-### Input
+## 📂 Input
 
 `Milestone2_Sentiment_Results_new.csv`
 
-### Output
+## 📤 Output
 
 `Milestone3_Keyword_Insights.csv`
 
-### Technologies
+## 🛠 Technologies Used
 
 * Python
 * pandas
 * collections.Counter
-* re
+* re (regex)
+
+## 📊 Output Columns
+
+* keyword
+* frequency
 
 ---
 
-## Project Workflow
+# 📌 Milestone 4 – Interactive Dashboard
 
-1. Collect raw customer feedback.
-2. Clean and standardize text (Milestone 1).
-3. Analyze sentiment and generate visualization (Milestone 2).
-4. Extract most frequent keywords for topic insights (Milestone 3).
-5. Produce datasets ready for dashboards, reporting, and future modeling.
+## 🎯 Objective
+
+Transform sentiment and keyword analysis into an interactive dashboard.
+
+## ⚙️ Features Implemented
+
+### 🔍 Sidebar Filters
+
+* Sentiment filter (Positive, Negative, Neutral)
+* Product filter
+* Date range filter
+
+### 📊 KPI Metrics
+
+* Total Reviews
+* Positive %
+* Negative %
+* Neutral %
+
+### 📈 Visualizations
+
+* Sentiment distribution bar chart
+* Product-wise sentiment table
+* Product sentiment heatmap
+* Monthly sentiment trend graph
+* Top keyword frequency chart
+* Word cloud
+* Confidence score histogram
+
+### 📥 Export Options
+
+* Download filtered reviews (CSV)
+* Download keyword list (CSV)
 
 ---
 
-## Installation
+## 📂 Inputs
 
-Install required libraries:
+* `Milestone2_Sentiment_Results_new.csv`
+* `Milestone3_Keyword_Insights.csv`
 
-```
-pip install pandas openpyxl textblob matplotlib
+## 📤 Outputs
+
+* Interactive Streamlit dashboard
+* Exportable CSV files:
+
+  * ReviewSense_Filtered_Reviews.csv
+  * ReviewSense_Keywords.csv
+
+---
+
+# 🛠 Technology Stack
+
+* Python
+* pandas
+* TextBlob
+* matplotlib
+* seaborn
+* WordCloud
+* Streamlit
+
+---
+
+# ▶️ Installation Guide
+
+### Step 1 – Install Dependencies
+
+```bash
+pip install pandas textblob matplotlib seaborn wordcloud streamlit
 ```
 
 ---
 
-## How to Run
+### Step 2 – Run Sentiment Analysis
 
-### Step 1 – Text Cleaning
-
-```
-python milestone1.py
-```
-
-### Step 2 – Sentiment Analysis
-
-```
+```bash
 python milestone2.py
 ```
 
-### Step 3 – Keyword Insights
+---
 
-```
+### Step 3 – Run Keyword Extraction
+
+```bash
 python milestone3.py
 ```
 
 ---
 
-## Final Outputs Summary
+### Step 4 – Launch Dashboard
 
-* Cleaned feedback dataset
-* Sentiment-labeled dataset with confidence scores
-* Sentiment visualization chart
-* Keyword frequency insights dataset
-
----
-
-## Typical Use Cases
-
-* Customer satisfaction monitoring
-* Product improvement analysis
-* Support quality evaluation
-* Trend detection
-* Dashboard creation
-* Foundation for machine learning models
+```bash
+python -m streamlit run milestone4.py
+```
 
 ---
 
-## Future Enhancements
+# 📈 Business Value
 
-* Topic classification dashboard using Streamlit
-* Product-wise sentiment analysis
-* Trend analysis over time
-* Machine learning–based sentiment prediction
-* Real-time feedback monitoring
+ReviewSense enables organizations to:
+
+* Monitor customer satisfaction
+* Compare product performance
+* Identify recurring issues
+* Detect trends over time
+* Make data-driven decisions
+* Export insights for reporting
+
+---
+
+# 🧠 Key Learning Outcomes
+
+* Text preprocessing
+* Sentiment analysis using NLP
+* Keyword extraction
+* Data visualization
+* Dashboard development
+* Business intelligence reporting
+
+---
+
+# 🏁 Conclusion
+
+ReviewSense successfully transforms raw customer feedback into structured insights using sentiment analysis, keyword extraction, and interactive visualization.
+
+The project demonstrates a complete end-to-end data analytics pipeline suitable for real-world business applications.
 
